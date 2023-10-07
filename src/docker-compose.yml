@@ -1,26 +1,24 @@
 version: '3'
 services:
-  downloader:
-    image: curlimages/curl:latest
-    volumes:
-      - ./downloads:/downloads
-    entrypoint: sh -c "curl -o /downloads/BetterDefaultBiomes-1.16.4+-Alpha2.6.1.jar https://www.curseforge.com/minecraft/mc-mods/better-default-biomes/files/3106985/download && curl -o /downloads/HarderBranchMining-1.16.5-1.36.0.11.jar https://www.curseforge.com/minecraft/mc-mods/harder-branch-mining/files/3093699/download && curl -o /downloads/magicaljewelry-1.16.5_1.2.12.jar https://www.curseforge.com/minecraft/mc-mods/magical-jewelry/files/3190202/download"
+  # downloader:
+  #   image: curlimages/curl:latest
+  #   user: root
+  #   volumes:
+  #     - ./downloads:/downloads
+  #   entrypoint: sh -c "curl -o /downloads/RAD2-Serverpack-1.7.zip https://www.curseforge.com/api/v1/mods/572778/files/4777217/download"
 
   minecraft-server:
-    image: itzg/minecraft-server
-    depends_on:
-      - downloader
+    image: itzg/minecraft-server:java8-multiarch
+    # depends_on:
+    #   - downloader
     environment:
       - EULA=TRUE
       - MEMORY=8G
       - DIFFICULTY=normal
       - SERVER_NAME=KRADHOX-SERVER
-      - TYPE=AUTO_CURSEFORGE
+      - TYPE=CURSEFORGE
       - VERSION=1.16.5
-      - CF_SLUG=roguelike-adventures-and-dungeons-2
-      - CF_FILE_ID=4777217
-      - CF_DOWNLOADS_REPO=/downloads
-      - CF_API_KEY=$$2a$$10$$L/zpRJ7Y0V2sIdrPRyS13.K/ilZTVr7m2pENhbUgTG8aq/9rPP4/G
+      - CF_SERVER_MOD=/downloads/RAD2-Serverpack-1.7.zip
       - RCON_PASSWORD=test
     ports:
       - "25565:25565"

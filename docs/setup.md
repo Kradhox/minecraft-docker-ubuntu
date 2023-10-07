@@ -57,19 +57,22 @@ Commençons par la première étape qui sera l'installation de Docker et Docker 
    Clonez le répertoire GitHub contenant les fichiers de configuration et le Docker Compose sur votre serveur :
 
    ```bash
-   git clone https://github.com/[Votre-Username]/minecraft-server.git
-   cd minecraft-server
+   git clone https://github.com/Kradhox/minecraft-docker-ubuntu
+   cd minecraft-docker-ubuntu/src
    ```
 
-   Remplacez `[Votre-Username]` par votre nom d'utilisateur GitHub et `minecraft-server` par le nom de votre répertoire.
+### Étape 3 : Récupération du modpack serveur
 
-3. **Exploration des Fichiers** :
-   Explorez les fichiers et dossiers clonés pour vous familiariser avec la structure du projet :
+1. **Télécharger le modpack** :
 
+   https://www.curseforge.com/minecraft/modpacks/roguelike-adventures-and-dungeons-2/files/4777217
+
+2. **Déposer le zip du modpack sur le serveur**
+
+   Créer un répertoire "downloads" dans le dossier du `docker-compose.yml`
    ```bash
-   ls
+   mkdir downloads
    ```
 
-Cette étape permettra aux utilisateurs de récupérer tous les fichiers nécessaires pour configurer et lancer le serveur Minecraft moddé. Ils seront prêts à passer à l'étape de configuration dans la suite du tutoriel.
+   Se connecter au serveur avec FileZilla en SFTP pour déposer le fichier dans le répertoire
 
-Faites-moi savoir si cette structure vous convient ou si des ajustements sont nécessaires avant de passer à l'étape suivante.
