@@ -6,8 +6,8 @@ services:
       - EULA=TRUE
       - TYPE=CURSEFORGE
       - VERSION=1.16.5
-      - CURSEFORGE_FILES=roguelike-adventures-and-dungeons-2  # Remplacez FILE-ID par l'ID du fichier du modpack
-      - CF_API_KEY=77cb42f6-bc85-4cd9-ac9e-a212042627e8  # Remplacez votre_clé_api par votre clé API CurseForge
+      - CF_SERVER_MOD=roguelike-adventures-and-dungeons-2
+      - CF_API_KEY=77cb42f6-bc85-4cd9-ac9e-a212042627e8
     ports:
       - "25565:25565"
     volumes:
