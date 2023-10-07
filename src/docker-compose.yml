@@ -1,7 +1,15 @@
 version: '3'
 services:
+  downloader:
+    image: curlimages/curl:latest
+    volumes:
+      - ./downloads:/downloads
+    entrypoint: sh -c "curl -o /downloads/BetterDefaultBiomes-1.16.4+-Alpha2.6.1.jar https://www.curseforge.com/minecraft/mc-mods/better-default-biomes/files/3106985/download && curl -o /downloads/HarderBranchMining-1.16.5-1.36.0.11.jar https://www.curseforge.com/minecraft/mc-mods/harder-branch-mining/files/3093699/download && curl -o /downloads/magicaljewelry-1.16.5_1.2.12.jar https://www.curseforge.com/minecraft/mc-mods/magical-jewelry/files/3190202/download"
+
   minecraft-server:
     image: itzg/minecraft-server
+    depends_on:
+      - downloader
     environment:
       - EULA=TRUE
       - MEMORY=8G
@@ -11,9 +19,14 @@ services:
       - VERSION=1.16.5
       - CF_SLUG=roguelike-adventures-and-dungeons-2
       - CF_FILE_ID=4777217
+      - CF_DOWNLOADS_REPO=/downloads
       - CF_API_KEY=$$2a$$10$$L/zpRJ7Y0V2sIdrPRyS13.K/ilZTVr7m2pENhbUgTG8aq/9rPP4/G
       - RCON_PASSWORD=test
     ports:
       - "25565:25565"
     volumes:
-      - ./data:/data
+      - mc-data:/data
+      - ./downloads:/downloads
+
+  volumes:
+    mc-data: {}
