@@ -6,7 +6,7 @@ services:
       - EULA=TRUE
       - TYPE=CURSEFORGE
       - VERSION=1.16.5
-      - CF_SERVER_MOD=https://www.curseforge.com/minecraft/modpacks/roguelike-adventures-and-dungeons-2
+      - CF_SERVER_MOD=https://www.curseforge.com/minecraft/modpacks/roguelike-adventures-and-dungeons-2/files/4777217
       - CF_API_KEY=77cb42f6-bc85-4cd9-ac9e-a212042627e8
     ports:
       - "25565:25565"
