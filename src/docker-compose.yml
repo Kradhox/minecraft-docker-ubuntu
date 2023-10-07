@@ -1,0 +1,13 @@
+version: '3'
+services:
+  minecraft-server:
+    image: itzg/minecraft-server
+    environment:
+      - EULA=TRUE
+      - VERSION=1.16.5
+      - TYPE=CURSEFORGE
+      - CF_SERVER_MOD=https://www.curseforge.com/minecraft/modpacks/roguelike-adventures-and-dungeons-2/files/4776927
+    ports:
+      - "25565:25565"
+    volumes:
+      - ./data:/data
