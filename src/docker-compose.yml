@@ -29,4 +29,4 @@ services:
       - ./downloads:/downloads
 
   volumes:
-    mc-data: {}
+    mc-data:
