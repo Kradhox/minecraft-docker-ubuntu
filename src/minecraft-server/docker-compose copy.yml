@@ -22,6 +22,14 @@ services:
       - CF_DOWNLOADS_REPO=/downloads
       - CF_API_KEY=$$2a$$10$$L/zpRJ7Y0V2sIdrPRyS13.K/ilZTVr7m2pENhbUgTG8aq/9rPP4/G
       - RCON_PASSWORD=test
+      - WHITELIST: |
+          Kradhox
+          Codinachos
+          Anyelo818
+      - EXISTING_WHITELIST_FILE=SYNCHRONIZE
+      - OPS: |
+          Kradhox
+      - EXISTING_OPS_FILE=SYNCHRONIZE
     ports:
       - "25565:25565"
     volumes:
