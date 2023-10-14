@@ -20,12 +20,13 @@ services:
       - VERSION=1.16.5
       - CF_SERVER_MOD=/downloads/RAD2-Serverpack-1.7.zip
       - RCON_PASSWORD=test
-      - WHITELIST=Kradhox,Codinachos,Anyelo818
+      - WHITELIST_FILE=/whitelist/whitelist.json
       - EXISTING_WHITELIST_FILE=SYNCHRONIZE
-      - OPS=Kradhox
+      - OPS_FILE=/whitelist/ops.json
       - EXISTING_OPS_FILE=SYNCHRONIZE
     ports:
       - "25565:25565"
     volumes:
+      - ./whitelist:/whitelist
       - ./data:/data
       - ./downloads:/downloads
