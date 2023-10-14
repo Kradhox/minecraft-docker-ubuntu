@@ -22,8 +22,10 @@ services:
       - RCON_PASSWORD=test
       - WHITELIST_FILE=/whitelist/whitelist.json
       - EXISTING_WHITELIST_FILE=SYNCHRONIZE
+      - OVERRIDE_WHITELIST=true
       - OPS_FILE=/whitelist/ops.json
       - EXISTING_OPS_FILE=SYNCHRONIZE
+      - OVERRIDE_OPS=true
     ports:
       - "25565:25565"
     volumes:
